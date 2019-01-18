@@ -1,0 +1,187 @@
+﻿@model PortfolioJM.Models.ContactModel
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/TemplateUser.cshtml";
+}
+<link href="@Url.Content("~/Content/User/")Styles/Contactstylesheet.css" rel="stylesheet" />
+
+@*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <h4>Send your comments.</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FromName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FromEmail)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Message)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Send" />
+            </div>
+        </div>
+    }*@
+
+
+@*@{Html.EnableClientValidation(); }
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Post", OnComplete = "Contact.onComplete" }))
+        {
+            @Html.ValidationSummary(true, "A few fields are still empty")
+    <fieldset>
+        <legend>Contact us</legend>
+        <div class="editor-label">
+             @Html.LabelFor(m => m.Name)
+        </div>
+        <div class="editor-field">
+             @Html.TextBoxFor(m => m.Name)
+             @Html.ValidationMessageFor(m => m.Name)
+        </div>
+        <div class="editor-label">
+             @Html.LabelFor(m => m.Email)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+        <div class="editor-label">
+             @Html.LabelFor(m => m.Comment)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(m => m.Comment, 10, 25, null)
+            @Html.ValidationMessageFor(m => m.Comment)
+        </div>
+        <p>
+            <input type="submit" value="Submit" />
+        </p>
+    </fieldset>
+    <p id="result"> @TempData["Message"] </p>
+
+        }*@
+
+@*@using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { @class = "contact-list", id = "contacts_form", role = "form", target = "_blank" }))
+    {
+        @Html.TextBox("name", null, new { @class = "form_item", @required = "required", placeholder = "Name", type = "text" })
+        @Html.TextBox("email", null, new { @class = "form_item", @required = "required", placeholder = "E-mail", type = "email" })
+        @Html.TextBox("message", null, new { @class = "form_item", @required = "required", placeholder = "Message", type = "text" })
+        <input type="submit" value="subscribe" />
+    }*@
+
+@*@using (Html.BeginForm("Contacts", "Home", FormMethod.Post, new { id = "contact-form" }))
+    {
+        <fieldset>
+            @Html.TextBoxFor(model => model.FName)
+            @Html.TextBoxFor(model => model.email)
+            @Html.TextBoxFor(model => model.subject)
+            @Html.TextAreaFor(model => model.message, new { @class = "img-shadow" })
+            <input class="form-button" data-type="reset" value="Clear" />
+            <input class="form-button" data-type="submit" type="submit" value="Send" />
+        </fieldset>*@
+@*}*@
+
+@*@using (Html.BeginForm("Contact", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "contact-form", role = "form" }))
+    {
+        @Html.ValidationSummary()
+        <fieldset>
+            <div class="form-div-1">
+                <label class="name">
+                    @Html.TextBoxFor(m => m.Name, new { @placeholder = "Name *", @type = "text" })
+                </label>
+            </div>
+            <div class="form-div-2">
+                <label class="email">
+                    @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email Address *", @type = "email" })
+                </label>
+            </div>
+            <div class="form-div-3">
+                <label class="phone notRequired">
+                    @Html.TextBoxFor(m => m.Subject, new { @placeholder = "Subject", @type = "text" })
+                </label>
+            </div>
+            <div>
+                <label class="message">
+                    @Html.TextAreaFor(m => m.Message, new { @placeholder = "Message *" })
+                </label>
+            </div>
+            <div class="button-wrapper">
+                <input type="submit" value="Send" name="submit" class="button"> <input type="reset" value="Reset" name="MFReset" class="button"><span>* Required Fields</span>
+            </div>
+        </fieldset>
+    }*@
+
+
+@*<div class="container">
+
+
+        <label for="fName"> First Name</label>
+        <textarea id="FName" rows="1" placeholder="Your first name" cols="10"></textarea>
+
+        <label for="lname">Last Name</label>
+        <textarea id="Lname" rows="1" placeholder="Your last name" cols="10"></textarea>
+
+
+        <label for="email"> Email Address</label>
+        <textarea id="email" rows="1" placeholder="Your Email Address" cols="20"></textarea>
+
+
+
+        <label for="subject">Subject</label>
+        <asp:TextBox ID="subject" runat="server" placeholder="Subject"> </asp:TextBox>
+        <textarea id="subject" rows="1" cols="20"></textarea>
+
+        <label for="message">Message</label>
+        <asp:TextBox ID="message" runat="server" placeholder="Write something.." style="height:200px" TextMode="MultiLine"></asp:TextBox>
+        <textarea id="subject" rows="6" placeholder="Write something..." textmode="MultiLine" cols="20"></textarea>
+
+
+        <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
+
+        <div>
+            <asp:Label ID="lblResult" runat="server"></asp:Label>
+
+        </div>
+        <input id="Submit1" type="submit" value="submit" />
+    </div>*@
+
+
+
+<fieldset>
+    <legend>
+        Send Email
+    </legend>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <p>Name: </p>
+        <p>@Html.TextBoxFor(m => m.Name)</p>
+
+        @Html.ValidationSummary()
+        <p>Email: </p>
+        <p>@Html.TextBoxFor(m => m.Email)</p>
+
+        @Html.ValidationSummary()
+        <p>Subject: </p>
+        <p>@Html.TextBoxFor(m => m.Subject)</p>
+
+        <p>Message: </p>
+        <p>@Html.TextAreaFor(m => m.Message)</p>
+        <input type="submit" value="Send" />
+    }
+</fieldset>
+
+

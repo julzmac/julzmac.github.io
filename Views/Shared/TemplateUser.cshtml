@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/User/")Styles/StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+    <style type="text/css">
+        .auto-style1 {
+            font-family: Constantia;
+            font-size: xx-large;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .auto-style2 {
+            font-family: Constantia;
+        }
+
+        .auto-style3 {
+            color: #FFFFFF;
+        }
+
+        .auto-style4 {
+            margin-left: 0px;
+        }
+    </style>
+    
+        <div>
+
+            <table align="center" style="width: 840px; opacity: 0.9; background-color: #FFFFFF" >
+                <tr style="height: 100px">
+
+
+
+                    @*<%-- Social Links aka twitter facebook linkedin --%>*@
+                    <td class="auto-style1" style="width: 900px; text-align: right">
+                        <span style="color:black">JULIAN MCADOO</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="http://www.linkedin.com/in/julian-mcadoo-78688166"><img src="@Url.Content("~/Content/User/")Pictures/download.jpg" height="40" width="45"></a>
+                        &nbsp;
+                        <a href="https://www.facebook.com/julzmac7"><img src="@Url.Content("~/Content/User/")Pictures/download.png" height="40" width="40" ></a>
+                        &nbsp;
+                        <a href="https://twitter.com/ijustdontseeit"> <img src="@Url.Content("~/Content/User/")Pictures/download (3).png"  height="40" width="40"></a>
+                        &nbsp;
+                        
+
+                      
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+
+                </tr>
+
+
+
+                @*<%-- Navigation --%>*@
+                <tr style="height: 40px;">
+                    <td>
+                        <ul id="menu">
+                            <li class="selected">@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li class="auto-style2"> @Html.ActionLink("Resume", "Resume", "Home")</li>
+                            <li class="auto-style2">@Html.ActionLink("Projects", "Projects", "Home")</li>
+                            <li class="auto-style2"> @Html.ActionLink("Contact", "Contact", "Contact")</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr style="height: 400px; vertical-align: top;">
+
+                    <td>
+                       
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            @RenderBody()
+                            <footer class="bottom-right">
+                            <p>
+                                &copy; @DateTime.Now.Year
+                            </p>
+                            </footer>
+                        </asp:ContentPlaceHolder>
+
+                                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            
+        </div>
+
+        
+            
+        
+
+
+
+    
+</body>
+</html>
